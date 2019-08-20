@@ -2,6 +2,7 @@ package com.facdjunior.sgcigrejas.model;
 
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -11,10 +12,16 @@ import javax.persistence.TemporalType;
  *
  * @author Francisco
  */
+@SuppressWarnings("serial")
+@Entity
 public class Bairro {
 
     @Column(length = 50, nullable = false)
     private String nome;
+    
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Entidade entidade;
 
     @ManyToOne
     @JoinColumn(nullable = false)

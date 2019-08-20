@@ -2,7 +2,9 @@ package com.facdjunior.sgcigrejas.model;
 
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -11,7 +13,11 @@ import javax.persistence.TemporalType;
  *
  * @author Francisco Junior
  */
+@SuppressWarnings("serial")
+@Entity
 public class Pessoa extends GenericDomain {
+
+
 
     @Column(length = 80, nullable = false)
     private String Nome;
@@ -20,9 +26,7 @@ public class Pessoa extends GenericDomain {
     @Temporal(TemporalType.TIMESTAMP)
     private Date DataCadastro;
 
-    @OneToOne
-    @JoinColumn(nullable = false)
-    private PessoaFisica pessoaFisica;
+    private Boolean PessoaFisica;
 
     @Column(length = 90)
     private String imagem;
@@ -43,13 +47,15 @@ public class Pessoa extends GenericDomain {
         this.DataCadastro = DataCadastro;
     }
 
-    public PessoaFisica getPessoaFisica() {
-        return pessoaFisica;
+    public Boolean getPessoaFisica() {
+        return PessoaFisica;
     }
 
-    public void setPessoaFisica(PessoaFisica pessoaFisica) {
-        this.pessoaFisica = pessoaFisica;
+    public void setPessoaFisica(Boolean PessoaFisica) {
+        this.PessoaFisica = PessoaFisica;
     }
+
+    
 
     public String getImagem() {
         return imagem;

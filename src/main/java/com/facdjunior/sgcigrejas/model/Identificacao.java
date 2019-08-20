@@ -13,6 +13,10 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Identificacao extends GenericDomain {
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Entidade entidade;
+    
     @Column(length = 50, nullable = false)
     private String nome;
 }

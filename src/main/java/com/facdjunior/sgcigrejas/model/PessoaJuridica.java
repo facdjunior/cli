@@ -2,6 +2,10 @@ package com.facdjunior.sgcigrejas.model;
 
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -10,6 +14,13 @@ import javax.persistence.TemporalType;
  * @author Francisco Junior
  */
 public class PessoaJuridica extends GenericDomain{
+    
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Entidade entidade;
+    
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer Sequencia;
     
     @Column(nullable = false, length = 120)
     private String Razao;
@@ -44,6 +55,4 @@ public class PessoaJuridica extends GenericDomain{
     public void setDataFundacao(Date DataFundacao) {
         this.DataFundacao = DataFundacao;
     }
-    
-    
 }

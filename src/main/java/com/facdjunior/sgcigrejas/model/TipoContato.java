@@ -1,11 +1,14 @@
 package com.facdjunior.sgcigrejas.model;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -13,36 +16,20 @@ import javax.persistence.ManyToOne;
  */
 @SuppressWarnings("serial")
 @Entity
-public class Endereco extends GenericDomain{
-
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Entidade entidade;
+public class TipoContato extends GenericDomain{
     
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer Sequencia;
     
-    @Column(nullable = false, length = 150)
-    private String rua;
-
-    @Column(length = 10)
-    private String numero;
-
-    @Column(length = 120)
-    private String Complemento;
-
-    @Column(length = 10)
-    private String CEP;
-
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Bairro bairro;
+    private Entidade entidade;
     
-    private Boolean Ativo;
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date DataCadastro;
     
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Pessoa pessoa;
-
+    @Column(length = 80)
+    private String TipoDado;
     
 }

@@ -1,12 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.facdjunior.sgcigrejas.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  *
@@ -16,11 +15,18 @@ import javax.persistence.Entity;
 @Entity
 public class Estado extends GenericDomain {
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    @Cascade(CascadeType.MERGE)
+    private Entidade entidade;
+    
     @Column(length = 2, nullable = false)
     private String sigla;
 
     @Column(length = 50, nullable = false)
     private String nome;
+    
+    private String CodigoIBGE;
 
     public String getSigla() {
         return sigla;

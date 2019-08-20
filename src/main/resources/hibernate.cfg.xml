@@ -3,16 +3,16 @@
 "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sgcigrejas?serverTimezone=UTC</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">root</property>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sgcigrejas?serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
     
     
     
-    <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
         <property name="hibernate.connection.autocommit">true</property>
         
         <!-- Pool de Conexões -->
@@ -28,7 +28,7 @@
         <property name="hibernate.show_sql">true</property>
 		
 
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
         
         
         <!-- dbcp connection pool configuration -->
@@ -37,6 +37,7 @@
         <property name="hibernate.dbcp.maxIdle">10</property>
         <property name="hibernate.dbcp.minIdle">5</property>
     
-    
-  </session-factory>
+        <mapping class="com.facdjunior.sgcigrejas.model.Entidade"/>
+        
+    </session-factory>
 </hibernate-configuration>
